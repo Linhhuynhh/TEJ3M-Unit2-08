@@ -21,17 +21,17 @@ float val;
 
 //setup
 void setup() {
-  // setup servo pins, controls
-  servoNumber1.attach(9);
-  servoNumber1.write(0);
+    // setup servo pins, controls
+    servoNumber1.attach(9);
+    servoNumber1.write(0);
   
 }
 
 void loop() {
   
-  val = analogRead(popin);
-  val = (val/6);
-  servoNumber1.write(val);
-  delay(15);
+    val = analogRead(popin);
+    val = (val/6);
+    servoNumber1.write(val);
+    delay(15);
   
 }
