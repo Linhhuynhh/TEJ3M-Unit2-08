@@ -1,37 +1,29 @@
-/* 
- * Created by Linh Huynh
- * Created on April 2025
- * 
-*/
+// created on Apr 2025
+// created by: Linh Huynh
+
+//using servo wit a potentiometer with arduino
 
 # include <Servo.h>
+
 Servo servoNumber1;
 
-// constants
-int popin = 0;
-int IN_MIN = 0;
-int OUT_MAX = 180;
-int IN_MAX = 1023;
-int OUT_MIN = 0;
-
-//variable
-float duration;
-float distance;
-float val;
-
-//setup
-void setup() {
-    // setup servo pins, controls
-    servoNumber1.attach(9);
-    servoNumber1.write(0);
-  
+const int ANALOG_PIN = 0;
+int angleOfServo;
+   
+void setup() 
+{
+  //servo pin
+  servoNumber1.attach(9); 
 }
 
-void loop() {
+void loop() 
+{
+  //reads Analog 0 pin
+  angleOfServo = analogRead(ANALOG_PIN);
   
-    val = analogRead(popin);
-    val = (val/6);
-    servoNumber1.write(val);
-    delay(15);
-  
+  //changes range to 1-180
+  angleOfServo = angleOfServo /6;
+
+  servoNumber1.write(angleOfServo);
+  delay (15);
 }
